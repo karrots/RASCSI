@@ -19,6 +19,8 @@ jobs:
       id: build_image
       with: 
         commands: |
+            cd src/raspberrypi
+            sudo apt-get update && sudo apt install git libspdlog-dev libpcap-dev genisoimage python3 python3-venv nginx libpcap-dev protobuf-compiler bridge-utils python3-dev libev-dev libevdev2 -y
             make all DEBUG=1 CONNECT_TYPE=${{ matrix.board_type }}
         copy_artifact_path: src/raspberrypi/bin
 
