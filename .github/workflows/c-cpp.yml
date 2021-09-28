@@ -18,9 +18,9 @@ jobs:
 
     - name: Create build environment
       run: | 
-        - docker pull sdt/docker-raspberry-pi-cross-compiler
-        - docker run  sdt/docker-raspberry-pi-cross-compiler > ~/bin/rpxc
-        - chmod +x ~/bin/rpxc
+        docker pull sdt/docker-raspberry-pi-cross-compiler
+        docker run  sdt/docker-raspberry-pi-cross-compiler > ~/bin/rpxc
+        chmod +x ~/bin/rpxc
 
     - name: Build Binaries
       run: ~/bin/rpxc make all DEBUG=1 CONNECT_TYPE=${{ matrix.board_type }}
