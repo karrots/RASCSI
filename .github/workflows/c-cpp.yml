@@ -16,10 +16,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: pguyot/arm-runner-action@v1
-        with: 
-          commands: |
-              make all DEBUG=1 CONNECT_TYPE=${{ matrix.board_type }}
-          copy_artifact_path: src/raspberrypi/bin
+      id: build_image
+      with: 
+        commands: |
+            make all DEBUG=1 CONNECT_TYPE=${{ matrix.board_type }}
+        copy_artifact_path: src/raspberrypi/bin
       run: ~/bin/rpxc make all DEBUG=1 CONNECT_TYPE=${{ matrix.board_type }}
       working-directory: ./src/raspberrypi
 
