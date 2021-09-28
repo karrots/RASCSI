@@ -18,7 +18,8 @@ jobs:
 
     - name: Create build environment
       run: | 
-        - docker run sdthirlwall/raspberry-pi-cross-compiler > ~/bin/rpxc
+        - docker pull sdt/docker-raspberry-pi-cross-compiler
+        - docker run  sdt/docker-raspberry-pi-cross-compiler > ~/bin/rpxc
         - chmod +x ~/bin/rpxc
 
     - name: Build Binaries
