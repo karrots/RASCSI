@@ -17,10 +17,9 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Create build environment
-      run: | 
-        docker pull sdthirlwall/raspberry-pi-cross-compiler
-        docker run  sdthirlwall/raspberry-pi-cross-compiler > ~/bin/rpxc
-        chmod +x ~/bin/rpxc
+      run: docker pull sdthirlwall/raspberry-pi-cross-compiler
+      run: docker run  sdthirlwall/raspberry-pi-cross-compiler > ~/bin/rpxc
+      run: chmod +x ~/bin/rpxc
 
     - name: Build Binaries
       run: ~/bin/rpxc make all DEBUG=1 CONNECT_TYPE=${{ matrix.board_type }}
