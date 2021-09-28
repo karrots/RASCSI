@@ -21,8 +21,6 @@ jobs:
         commands: |
             make all DEBUG=1 CONNECT_TYPE=${{ matrix.board_type }}
         copy_artifact_path: src/raspberrypi/bin
-      run: ~/bin/rpxc make all DEBUG=1 CONNECT_TYPE=${{ matrix.board_type }}
-      working-directory: ./src/raspberrypi
 
     # We need to tar the binary outputs to retain the executable
     # file permission. Currently, actions/upload-artifact only
